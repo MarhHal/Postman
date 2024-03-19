@@ -1,0 +1,1645 @@
+{
+	"info": {
+		"_postman_id": "261fbc61-f87b-4625-9fb4-c97bbe93ee19",
+		"name": "Газификация",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32632251"
+	},
+	"item": [
+		{
+			"name": "Услуги",
+			"item": [
+				{
+					"name": "Создать заявку на услугу",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"stringi\",\r\n  \"city\": \"minsk\",\r\n  \"address\": \"string\",\r\n  \"phone\": \"+5 (752) 500-00-01\",\r\n  \"question\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/services/applications",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"services",
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Список заявок на услугу",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/services/applications?page=1&page_size=6",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"services",
+								"applications"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Детали заявки на услугу",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/services/applications/106",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"services",
+								"applications",
+								"106"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Редактировать заявку на услугу",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Rita\",\r\n  \"city\": \"Almaty\",\r\n  \"address\": \"string\",\r\n  \"phone\": \"+6 (247) 945-93-21\",\r\n  \"question\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/services/applications/{{id}}",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"services",
+								"applications",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Список типов услуг",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "Language",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{newurl}}api/v1/services/types?page=1&page_size=6",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"services",
+								"types"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Детали типа услуг",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "Language",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{newurl}}api/v1/services/types/2",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"services",
+								"types",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Стоимость услуг",
+			"item": [
+				{
+					"name": "Создать",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"price\": 100,\r\n  \"installment\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"initialPayment\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"monthlyPayment\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-price",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-price"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вывести список",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "Language",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-price",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-price"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Детали",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-price/83",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-price",
+								"83"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "активировать\\деактивировать",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-price/83?isActive=true",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-price",
+								"83"
+							],
+							"query": [
+								{
+									"key": "isActive",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Редактировать",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"price\": 50,\r\n  \"installment\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"initialPayment\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"monthlyPayment\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-price/83",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-price",
+								"83"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-price/83",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-price",
+								"83"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Что входит в услугу?",
+			"item": [
+				{
+					"name": "Вывести список",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-features",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-features"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создать",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-features",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-features"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-features/68",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-features",
+								"68"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Активировать\\деактивировать",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-features/68?isActive=true",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-features",
+								"68"
+							],
+							"query": [
+								{
+									"key": "isActive",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Редактировать",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-features/68",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-features",
+								"68"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/service-features/68",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"service-features",
+								"68"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Как мы работаем",
+			"item": [
+				{
+					"name": "Создать запись",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"paragraph1\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"paragraph2\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"paragraph3\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"paragraph4\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"paragraph5\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"suggestion\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/how-we-work",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"how-we-work"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Список записей",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/how-we-work?page=4",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"how-we-work"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Детали записи",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/how-we-work/48",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"how-we-work",
+								"48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "редактировать запись",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": {\r\n    \"ru\": \"stringi\",\r\n    \"kz\": \"stringi\",\r\n    \"en\": \"stringi\",\r\n    \"localized\": \"string\"\r\n  },\r\n  \"paragraph1\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\",\r\n    \"localized\": \"string\"\r\n  },\r\n  \"paragraph2\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\",\r\n    \"localized\": \"string\"\r\n  },\r\n  \"paragraph3\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\",\r\n    \"localized\": \"string\"\r\n  },\r\n  \"paragraph4\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\",\r\n    \"localized\": \"string\"\r\n  },\r\n  \"paragraph5\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\",\r\n    \"localized\": \"string\"\r\n  },\r\n  \"suggestion\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\",\r\n    \"localized\": \"string\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/how-we-work/48",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"how-we-work",
+								"48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить запись",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/how-we-work/48",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"how-we-work",
+								"48"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Общая информация",
+			"item": [
+				{
+					"name": "Вывести общий список",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/general-info/general-info",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"general-info",
+								"general-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавить запись с общей информацией",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"subtitle\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"cover\": \"BRxQ}qv&P\\\"l;eV6,8\\\"B2`*lI_{Pka}doky)dV<5(DXm_{bX$NS&MR,)Exd~#Zg!9Onl!]:xuI8G.M;&sy&F`>gDiqx;GKvtP2250/46/39/37a386ac-c09f-3011-bbba-adb4da39bdbb.jkf?name=0qX3U@f@F%vDkzsV|)-_}2kW>V{\\\\orEXfofoY*St*#pcmW?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/general-info/general-info",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"general-info",
+								"general-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Пакеты документов",
+			"item": [
+				{
+					"name": "Вывести список",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/document-packages",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"document-packages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"description\": {\r\n    \"ru\": \"string\",\r\n    \"kz\": \"string\",\r\n    \"en\": \"string\"\r\n  },\r\n  \"image1\": \"bPkk1oc]}y2677/66/06/5dd9b37b-292f-7662-9be9-92bb195f2c35.ocx?name=!c@kVst>Y\\\\pV,9$d`p3}wu39U2{$Tzn0i8Z{+a/.Zrn[v)((69<lg,<`/<g[pQ3Zo90t4MZgrawew~ec,6w_1*uLCH:ECQec$W\",\r\n  \"image2\": \".BFM.]hiJRH&1),[$7Mpllp?gW)j@z\\\\dzGveiHD<vv[vA5d'*o),smwwwq1Lu-//T7026/61/24/e17339d8-03bc-d131-771c-0ec466af0d67.xjr?name={Tz~=^qt1g3_:!fNQeJOpJSbb(p^]wi@;&zx@axZ|]D)y\\\"-ZJG^XS7bdS'\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/gasification/document-packages",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"gasification",
+								"document-packages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Вакансии",
+			"item": [
+				{
+					"name": "Список вакансий",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/vacancies?page=1",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Опубликовать вакансию",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"QA\",\r\n  \"subtitle\": \"string\",\r\n  \"salary\": \"string\",\r\n  \"cityId\": 201,\r\n  \"requirement\": \"string\",\r\n  \"responsibility\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/vacancies",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"vacancies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "отклики на вакансию",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/vacancies/31/applications",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"vacancies",
+								"31",
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Откликнуться на вакансию",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"applicantName\": \"string\",\r\n  \"applicantPhone\": \"+3 (737) 547-61-96\",\r\n  \"resume\": \"0VOCKFx_gsf_1P?-%oWd5`N/nRiv)r1v`ZGT9r8220/10/60/910936d8-5b28-d5e2-8f5a-97e46d9ac527.qgi?name=L\\\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/vacancies/32/applications",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"vacancies",
+								"32",
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Подробнее о вакансии",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/vacancies/31",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"vacancies",
+								"31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение общей информации",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/vacancies/general-info",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"vacancies",
+								"general-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Фильтрация вакансий по городам",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/vacancies/city/201",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"vacancies",
+								"city",
+								"201"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Подробнее об отклике",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/vacancies/applications/{applicationID}",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"vacancies",
+								"applications",
+								"{applicationID}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Тесты",
+			"item": [
+				{
+					"name": "список тестов",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/tests",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"tests"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Загрузить\\удалить файл",
+			"item": [
+				{
+					"name": "Загрузить файл",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "postman-cloud:///1eec00dd-e651-4b60-816f-7a1803062ec1"
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/files",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"files"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Текстовые страницы",
+			"item": [
+				{
+					"name": "Вывести список",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/text-pages",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"text-pages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Подробнее о текстовой странице",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{newurl}}api/v1/text-pages/1",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"text-pages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Безопасность",
+			"item": [
+				{
+					"name": "Вывод всех записей \"Безопасность и охрана труда\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/safety",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"safety"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Закупки",
+			"item": [
+				{
+					"name": "Список общей информации",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/procurements",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"procurements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Список документов по закупкам",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/procurements/documents",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"procurements",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Пресс центр",
+			"item": [
+				{
+					"name": "Вывод всех записей \"Пресс центр\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/press-center",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"press-center"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вывод записей пресс-центра по id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/press-center/1",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"press-center",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Модуль-главная страница",
+			"item": [
+				{
+					"name": "Вывод всех записей \"почему мы?\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/main-page/why-are-we",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"main-page",
+								"why-are-we"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вывод всех записей \"Общая информация\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/main-page/general-info",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"main-page",
+								"general-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вывод всех записей \"О компании",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/main-page/company",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"main-page",
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вывод всех записей \"Преимущества\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/main-page/advantages",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"main-page",
+								"advantages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вывод всех записей \"Виды деятельности\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/main-page/activity-types",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"main-page",
+								"activity-types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Модуль-финансовая отчетность",
+			"item": [
+				{
+					"name": "Список записей \"Программы\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/financial-statement/programs",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"financial-statement",
+								"programs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Список записей \"Общая информация\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/financial-statement/programs",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"financial-statement",
+								"programs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Модуль - Экология",
+			"item": [
+				{
+					"name": "Вывод всех записей \"Общая информация\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/ecology/general-info",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"ecology",
+								"general-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вывод записей \"Общая информация\" по id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/ecology/general-info/1",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"ecology",
+								"general-info",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вывод записей \"Свойства натурального газа\" по id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/ecology/general-info/1",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"ecology",
+								"general-info",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вывод всех записей \"Свойства натурального газа\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/ecology/gas-properties",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"ecology",
+								"gas-properties"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Документы",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/documents",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "справочники",
+			"item": [
+				{
+					"name": "Список графиков работы",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/dictionaries/work-schedules",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"dictionaries",
+								"work-schedules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Детали графика работы",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/dictionaries/work-schedules/1",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"dictionaries",
+								"work-schedules",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Список опытов работы",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/dictionaries/work-experiences",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"dictionaries",
+								"work-experiences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Детали опыта работы",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/dictionaries/work-experiences/1",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"dictionaries",
+								"work-experiences",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "вывод всех тегов",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/dictionaries/tags",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"dictionaries",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Детали тегов",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/dictionaries/tags/1",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"dictionaries",
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Список меню",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/dictionaries/menus",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"dictionaries",
+								"menus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Детали меню",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/dictionaries/menus/2",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"dictionaries",
+								"menus",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Контакты",
+			"item": [
+				{
+					"name": "Вывод всех записей",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/contacts",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить основной контакт, который отображается в шапке",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/contacts/primary",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"contacts",
+								"primary"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "О компании",
+			"item": [
+				{
+					"name": "Вывод информации о компании",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{newurl}}api/v1/company",
+							"host": [
+								"{{newurl}}api"
+							],
+							"path": [
+								"v1",
+								"company"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "api-apl.test-it.kz",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "newurl",
+			"value": "http://api-apl.test-it.kz/"
+		},
+		{
+			"key": "id",
+			"value": "106",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "ac916d1b-801e-4ccd-88b0-cfe33eb2c1ee",
+		"name": "Basic e-commerce django rest-api endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24851127"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"sstest@gmail.com\",\r\n\t\"name\": \"test\",\r\n\t\"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/users/register/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"users",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login and get auth token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"asd@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/users/login/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"users",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Profile update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"11\",\r\n\t\"name\": \"Valentine\",\r\n\t\"email\": \"asd@gmail.com\",\r\n\t\"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/users/profile/update/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"users",
+								"profile",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "ELD9W1dePNNMzk5B0E7GAhN1Q4AfbNmz",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "sessionid",
+								"value": "ekhxyue8z7fhyer5un73t89h52pqnaoi",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}api/users/profile",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/products/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/products/25",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"products",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get top products by reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/products/top/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"products",
+								"top",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post review on product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"rating\": \"5\",\r\n\t\"comment\": \"Excellent\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/products/24/reviews/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"24",
+								"reviews",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "View order by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/orders/61",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"orders",
+								"61"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View my orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/orders/myorders",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"orders",
+								"myorders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"itemsPrice\": \"399.99\",\r\n\t\"orderItems\": [\r\n\t\t{\r\n\t\t\t\"countInStock\": 11,\r\n\t\t\t\"image\": \"/images/playstation_hoGcYEn.jpg\",\r\n\t\t\t\"name\": \"Sony Playstation 4 Pro White Version\",\r\n\t\t\t\"price\": \"399.99\",\r\n\t\t\t\"product\": 25,\r\n\t\t\t\"qty\": 1\r\n\t\t}\r\n\t],\r\n\t\"paymentMethod\": \"Paypal\",\r\n\t\"shippingAddress\": {\r\n\t\t\"address\": \"asd\",\r\n\t\t\"city\": \"asd\",\r\n\t\t\"country\": \"asd\",\r\n\t\t\"postalCode\": \"asd\"\r\n\t},\r\n\t\"shippingPrice\": \"10.00\",\r\n\t\"taxPrice\": \"32.80\",\r\n\t\"totalPrice\": \"442.79\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders/add/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"add",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMjM3NjM4LCJpYXQiOjE2NzA2NDU2MzgsImp0aSI6ImNlNzFiYTUwOTNhMTQyOGU5ODYxMTMxNTE2NjczOWZkIiwidXNlcl9pZCI6MTF9.jWZuStsykNPm_JtUHCdR0sT_raz1ic04DHOzeoldgDM",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000/",
+			"type": "string"
+		}
+	]
+}
